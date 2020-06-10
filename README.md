@@ -19,10 +19,10 @@ more generally, piecewise-linear networks, which can be transformed into equival
 - `LinearizedNetwork` in `plnn_bounds/network_linear_approximation.py` represents the [PLANET](https://github.com/progirep/planet) relaxation of the network in Gurobi 
 and uses the commercial solver to compute the model's output bounds.
 - `SaddleLP` in `plnn_bounds/proxlp_solver/solver.py` implements the dual iterative algorithms presented in 
-"Lagrangian Decomposition for Neural Network Verification", based on the Lagrangian Decomposition of the activation's 
+"Lagrangian Decomposition for Neural Network Verification" in PyTorch, based on the Lagrangian Decomposition of the activation's 
 convex relaxations.
 - `DJRelaxationLP` in `plnn_bounds/proxlp_solver/dj_relaxation.py` implements the Lagrangian relaxation-based dual iterative algorithm presented in 
-"[A Dual Approach to Scalable Verification of Deep Networks](https://arxiv.org/abs/1803.06567)"
+"[A Dual Approach to Scalable Verification of Deep Networks](https://arxiv.org/abs/1803.06567)" in PyTorch.
 
 These classes offer two main interfaces (see `tools/cifar_runner.py` and `tools/cifar_bound_comparison.py` for detailed 
 usage, including algorithm parametrization):
@@ -33,6 +33,11 @@ bounds computed for the previous one): `define_linear_approximation`.
 
 The computed neural network bounds can be employed in two different ways: alone, to perform incomplete 
 verification; as the bounding part of branch and bound (to perform complete verification).
+
+## Implementation details
+
+The dual iterative algorithms (`SaddleLP`, `DJRelaxationLP`) **batch** the computations of each layer output 
+lower/upper bounds in order to compute them in parallel. 
 
 ## Repository structure
 * `./plnn_bounds/` contains the code for the dual iterative algorithms described above.
