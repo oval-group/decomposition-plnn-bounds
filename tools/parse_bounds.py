@@ -202,7 +202,7 @@ def do_selected_pairwise_hex(datapoints, filename_prefix):
         meth2_data = datapoints[datapoints.Method == meth2]
 
         fig, (time_ax, bound_ax) = plt.subplots(1, 2, figsize=(20, 10))
-        time_ax.hexbin(x=meth1_data.Time, y=meth2_data.Time, cmap="Greens", gridsize=30, mincnt=1, xscale='linear',
+        time_ax.hexbin(x=meth1_data.Time, y=meth2_data.Time, cmap="Greens", gridsize=35, mincnt=1, xscale='linear',
                        yscale='linear', bins='log', extent=time_extent)
         time_ax.xaxis.set_label_text(meth1.replace('\n', ' '))
         time_ax.yaxis.set_label_text(meth2.replace('\n', ' '))
@@ -217,7 +217,7 @@ def do_selected_pairwise_hex(datapoints, filename_prefix):
             bnd_extent[2] += 0.45
 
         to_plot = "Gap to best bound"
-        bound_ax.hexbin(x=meth1_data[to_plot], y=meth2_data[to_plot], gridsize=30, mincnt=1, cmap="Greens",
+        bound_ax.hexbin(x=meth1_data[to_plot], y=meth2_data[to_plot], gridsize=35, mincnt=1, cmap="Greens",
                         xscale='log', yscale='log', bins='log', extent=tuple(bnd_extent))
         bound_ax.xaxis.set_label_text(meth1.replace('\n', ' '))
         bound_ax.yaxis.set_label_text(meth2.replace('\n', ' '))
