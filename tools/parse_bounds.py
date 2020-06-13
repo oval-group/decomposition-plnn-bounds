@@ -172,7 +172,7 @@ def do_selected_pairwise_hex(datapoints, filename_prefix):
     datapoints = datapoints.reset_index(level=1)
 
     bnd_extent = [-2.3, -0.6, -2.3, -0.6] if "madry8" in filename_prefix else [-1.8, -0.4, -1.8, -0.4]
-    time_extent = (2, 3, 2, 3)
+    time_extent = (1, 4, 1, 4)
 
     target_dir = filename_prefix + "_pairwise_comparisons"
     os.makedirs(target_dir, exist_ok=True)
