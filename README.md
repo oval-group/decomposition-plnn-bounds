@@ -8,7 +8,7 @@ If you use it in your research, please cite:
 @Article{Bunel2020,
     title={Lagrangian Decomposition for Neural Network Verification},
     author={Bunel, Rudy and De Palma, Alessandro and Desmaison, Alban and Dvijotham, Krishnamurthy and Kohli, Pushmeet  and Torr, Philip H. S. and Kumar, M. Pawan},
-    journal={Conference on Uncertainty in Artificial Intelligence (UAI) 2020},
+    journal={Conference on Uncertainty in Artificial Intelligence},
     year={2020}
 }
 ```
